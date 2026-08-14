@@ -1,0 +1,26 @@
+<svg width="420" height="420" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="petal" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#ffffff"/>
+      <stop offset="0.68" stop-color="#f5f5f2"/>
+      <stop offset="1" stop-color="#d9d9d5"/>
+    </linearGradient>
+  </defs>
+  <g fill="url(#petal)" stroke="#d3d3cf" stroke-width="1.2">
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(0 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(45 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(90 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(135 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(180 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(225 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(270 210 210)"/>
+    <ellipse cx="210" cy="92" rx="57" ry="123" transform="rotate(315 210 210)"/>
+  </g>
+  <circle cx="210" cy="210" r="56" fill="#fafaf7" stroke="#d0d0cc"/>
+  <g stroke="#9d9d98" stroke-width="2.4" opacity=".65">
+    <path d="M210 210l-30-62"/><path d="M210 210l-8-68"/><path d="M210 210l18-65"/><path d="M210 210l38-50"/><path d="M210 210l53-31"/><path d="M210 210l-51-33"/>
+  </g>
+  <g fill="#8e8e89">
+    <circle cx="180" cy="148" r="4"/><circle cx="202" cy="142" r="4"/><circle cx="228" cy="145" r="4"/><circle cx="248" cy="160" r="4"/><circle cx="263" cy="179" r="4"/><circle cx="159" cy="177" r="4"/>
+  </g>
+</svg>

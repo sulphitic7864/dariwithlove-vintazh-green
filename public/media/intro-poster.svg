@@ -1,0 +1,20 @@
+<svg width="1280" height="720" viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="bg" cx="68%" cy="42%" r="80%"><stop stop-color="#fff"/><stop offset="1" stop-color="#e8e8e5"/></radialGradient>
+    <linearGradient id="p" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff"/><stop offset="1" stop-color="#deded9"/></linearGradient>
+  </defs>
+  <rect width="1280" height="720" fill="url(#bg)"/>
+  <g fill="url(#p)" stroke="#d3d3cf" stroke-width="2" opacity=".96">
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(-15 255 275)"/>
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(35 255 275)"/>
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(85 255 275)"/>
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(135 255 275)"/>
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(185 255 275)"/>
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(235 255 275)"/>
+    <ellipse cx="230" cy="195" rx="92" ry="205" transform="rotate(285 255 275)"/>
+  </g>
+  <circle cx="255" cy="275" r="70" fill="#f9f9f6" stroke="#d3d3cf"/>
+  <path d="M515 478c44-78 132-101 212-60-42 72-108 104-212 60Z" fill="url(#p)" stroke="#d3d3cf"/>
+  <path d="M542 474c58-25 103-42 164-52" stroke="#aaa9a4" stroke-width="3" opacity=".55"/>
+  <path d="M1035 158c41-61 110-73 166-45-37 54-87 75-166 45Z" fill="url(#p)" stroke="#d3d3cf" opacity=".72"/>
+</svg>
