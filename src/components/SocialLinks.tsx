@@ -25,7 +25,7 @@ export function SocialLinks() {
             target={social.target}
             rel={social.target === "_blank" ? "nofollow noopener" : "nofollow"}
             aria-label={social.ariaLabel}
-            className="block h-[30px] w-[30px] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-2 focus-visible:outline-black"
+            className="block h-[30px] w-[30px] transition-opacity hover:opacity-70 focus-visible:outline focus-visible:outline-offset-2 focus-visible:outline-[#d39f4e]"
           >
             <svg
               aria-hidden="true"
@@ -41,7 +41,7 @@ export function SocialLinks() {
                 fillRule="evenodd"
                 clipRule="evenodd"
                 d={paths[social.type]}
-                fill="#000000"
+                fill="#d39f4e"
               />
             </svg>
           </a>

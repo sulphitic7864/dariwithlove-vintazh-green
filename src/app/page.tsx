@@ -6,6 +6,7 @@ import { Countdown } from "@/components/sections/Countdown";
 import { Details } from "@/components/sections/Details";
 import { DressCode } from "@/components/sections/DressCode";
 import { EventTimeline } from "@/components/sections/EventTimeline";
+import { GuestSection } from "@/components/sections/GeustSection";
 import { Location } from "@/components/sections/Location";
 import { OrderInvitation } from "@/components/sections/OrderInvitation";
 import { RSVP } from "@/components/sections/RSVP";
@@ -40,6 +41,7 @@ export default function HomePage() {
 
       <main className="w-full  text-[#111]">
         <WeddingDetails />
+        <GuestSection />
         <EventTimeline />
         <Location />
         <Details />

@@ -79,6 +79,7 @@ export type WeddingConfig = Readonly<{
     heroSubtitle: LocalizedText;
     invitation: Readonly<{
       heading: LocalizedText;
+      HeroParagraphs: LocalizedList;
       paragraphs: LocalizedList;
       loveLine: LocalizedText;
     }>;
@@ -167,7 +168,7 @@ export const wedding: WeddingConfig = {
     { code: "ky", shortLabel: "KG", htmlLang: "ky" },
     { code: "ru", shortLabel: "RU", htmlLang: "ru" },
   ],
-  couple: { groom: "Азамат", bride: "Айгерим" },
+  couple: { groom: "ДМИТРИЙ", bride: "Ольга" },
   event: {
     date: "2027-11-20",
     startTime: "17:00",
@@ -251,7 +252,7 @@ export const wedding: WeddingConfig = {
       ky: "Кийим тандоодо майрамдын жарашыктуу жана токтоо стилин эске алсаңыздар биз кубанабыз.",
       ru: "Будем рады, если при выборе образа вы поддержите элегантную и сдержанную атмосферу вечера.",
     },
-    paletteImage: "https://static.tildacdn.com/tild3735-3463-4662-a130-306363633933/Group_1000003020.png",
+    paletteImage: "https://static.tildacdn.com/tild3461-3233-4363-a338-653831626130/Group_48099783_1.svg",
     women: {
       title: { ky: "Айымдар", ru: "Девушки" },
       text: {
@@ -322,12 +323,19 @@ export const wedding: WeddingConfig = {
   },
   copy: {
     loading: {
-      ky: "Чакыруу баракчасын ачуу үчүн басыңыз",
-      ru: "Нажмите, чтобы открыть приглашение",
+      ky: "ОТКРЫТЬ",
+      ru: "ОТКРЫТЬ",
     },
     heroSubtitle: { ky: "Үйлөнүү тоюна чакыруу", ru: "Приглашение на свадьбу" },
     invitation: {
       heading: { ky: "Урматтуу коноктор!", ru: "Дорогие гости!" },
+      HeroParagraphs: {
+        ky: [
+          "Судьбой нам было предначертано встретить друг друга и обрести своё счастье, которым спешимс вами поделиться!",
+        ],
+        ru: ["Судьбой нам было предначертано встретить друг друга и обрести своё счастье, которым спешимс вами поделиться!",
+        ],
+      },
       paragraphs: {
         ky: [
           "Биз үчүн өзгөчө болгон бул күндү сиздер менен бөлүшүп, балдарыбыз [Groom] жана [Bride] баш кошкон кубанычтуу кечеге кадырлуу коногубуз болууга чакырабыз.",
