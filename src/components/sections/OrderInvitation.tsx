@@ -20,50 +20,104 @@ export function OrderInvitation() {
         <form
           action="https://t.me/"
           target="_blank"
-          className="mx-auto mt-7 grid w-full max-w-[620px] grid-cols-[minmax(0,1.05fr)_minmax(0,.9fr)_minmax(0,1.15fr)_auto] items-end gap-1 text-left sm:mt-8 sm:gap-2"
+          className="
+    mx-auto mt-10 grid w-full max-w-[620px]
+    grid-cols-1 gap-6 text-left
+
+    sm:mt-8
+    sm:grid-cols-[minmax(0,1.05fr)_minmax(0,.9fr)_minmax(0,1.15fr)_auto]
+    sm:items-end
+    sm:gap-2
+  "
         >
-          <label className="min-w-0">
-            <span className="mb-1 block truncate font-copy leading-none   font-normal md:!text-lg text-base text-black">
+          <label className="w-full">
+            <span className="mb-2 block font-copy text-base text-black sm:text-sm">
               {copy.name[language]}
             </span>
+
             <input
               name="name"
               type="text"
               autoComplete="name"
               placeholder={copy.namePlaceholder[language]}
-              className="h-8 w-full min-w-0 rounded-none border border-black/45 bg-white px-1.5 font-copy text-[8px] outline-none transition-colors placeholder:text-black/35 focus:border-black sm:h-9 sm:px-2.5 sm:text-[10px]"
+              className="
+        h-[52px] w-full
+        rounded-none border border-black/60
+        bg-white px-4
+        font-copy text-sm
+        outline-none
+        placeholder:text-black/35
+        focus:border-black
+
+        sm:h-9 sm:px-2.5 sm:text-[10px]
+      "
             />
           </label>
 
-          <label className="min-w-0">
-            <span className="mb-1 block truncate font-copy leading-none   font-normal md:!text-lg text-base text-black">
+          <label className="w-full">
+            <span className="mb-2 block font-copy text-base text-black sm:text-sm">
               {copy.phone[language]}
             </span>
+
             <input
               name="phone"
               type="tel"
               autoComplete="tel"
               placeholder={copy.phonePlaceholder[language]}
-              className="h-8 w-full min-w-0 rounded-none border border-black/45 bg-white px-1.5 font-copy text-[8px] outline-none transition-colors placeholder:text-black/35 focus:border-black sm:h-9 sm:px-2.5 sm:text-[10px]"
+              className="
+        h-[52px] w-full
+        rounded-none border border-black/60
+        bg-white px-4
+        font-copy text-sm
+        outline-none
+        placeholder:text-black/35
+        focus:border-black
+
+        sm:h-9 sm:px-2.5 sm:text-[10px]
+      "
             />
           </label>
 
-          <label className="min-w-0">
-            <span className="mb-1 block truncate font-copy leading-none   font-normal md:!text-lg text-base text-black">
+          <label className="w-full">
+            <span className="mb-2 block font-copy text-base text-black sm:text-sm">
               {copy.telegram[language]}
             </span>
+
             <input
               name="telegram"
               type="text"
               inputMode="url"
               placeholder={copy.telegramPlaceholder[language]}
-              className="h-8 w-full min-w-0 rounded-none border border-black/45 bg-white px-1.5 font-copy text-[7px] outline-none transition-colors placeholder:text-black/35 focus:border-black sm:h-9 sm:px-2.5 sm:text-[9px]"
+              className="
+        h-[52px] w-full
+        rounded-none border border-black/60
+        bg-white px-4
+        font-copy text-sm
+        outline-none
+        placeholder:text-black/35
+        focus:border-black
+
+        sm:h-9 sm:px-2.5 sm:text-[9px]
+      "
             />
           </label>
 
           <button
             type="submit"
-            className="h-8 min-w-[50px] border border-black bg-black px-2 font-sans text-[7px] uppercase tracking-[0.06em] text-white transition-opacity hover:opacity-80 sm:h-9 sm:min-w-[72px] sm:px-4 sm:text-[8.5px]"
+            className="
+      h-[52px] w-full
+      border border-black
+      bg-black
+      px-5
+      font-display text-base
+      uppercase tracking-[0.04em]
+      text-white
+
+      sm:h-9
+      sm:w-auto
+      sm:min-w-[72px]
+      sm:text-[8.5px]
+    "
           >
             {copy.button[language]}
           </button>
@@ -79,7 +133,11 @@ export function OrderInvitation() {
         </p>
 
         <div className="mt-16 flex justify-center font-display md:text-5xl text-2xl tracking-[-0.04em] ">
-          <img className="text-center" src="https://static.tildacdn.com/tild3436-3366-4730-a262-316632383135/dari_with_love.svg" alt="" />
+          <img
+            className="text-center"
+            src="https://static.tildacdn.com/tild3436-3366-4730-a262-316632383135/dari_with_love.svg"
+            alt=""
+          />
         </div>
       </div>
 

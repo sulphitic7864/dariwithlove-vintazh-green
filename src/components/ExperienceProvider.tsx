@@ -149,39 +149,27 @@ function LoadingScreen({
   const [closing, setClosing] = useState(false);
   const [visible, setVisible] = useState(true);
   const opened = useRef(false);
-
   const { play: playMusic } = useWeddingAudio();
 
- const openWebsite = () => {
-  if (opened.current) return;
+  const openWebsite = () => {
+    if (opened.current) return;
 
-  opened.current = true;
+    opened.current = true;
+    void playMusic();
+    setClosing(true);
 
-  void playMusic();
-
-  setClosing(true);
-
-  window.setTimeout(() => {
-    setVisible(false);
-  }, 650);
-};
+    window.setTimeout(() => setVisible(false), 650);
+  };
 
   if (!visible) return null;
 
   return (
     <div
-      className={`
-        fixed inset-0 z-[130] h-[100svh] w-full overflow-hidden
-        bg-[#f7f5eb]
+      className={`fixed inset-0 z-[130] h-[100svh] overflow-hidden bg-[#f8f5eb]
         transition-opacity duration-700
-        ${
-          closing
-            ? "pointer-events-none opacity-0"
-            : "pointer-events-auto opacity-100"
-        }
-      `}
+        ${closing ? "pointer-events-none opacity-0" : "opacity-100"}`}
     >
-      {/* Background */}
+      {/* Floral background */}
       <div
         className="
           pointer-events-none absolute inset-0
@@ -190,119 +178,98 @@ function LoadingScreen({
         "
       />
 
-      {/* Green curved panel */}
+      {/* DESKTOP green curve */}
       <div
         className="
-          pointer-events-none
-          absolute top-1/2 right-[-8vw]
-          h-[150vh] w-[72vw]
-          -translate-y-1/2
-          rounded-l-[50%]
+          pointer-events-none absolute right-[-8vw] top-1/2
+          hidden h-[150vh] w-[72vw]
+          -translate-y-1/2 rounded-l-[50%]
           bg-[#005847]
+          md:block
+          lg:right-[-6vw]
+        "
+      />
 
-          max-lg:
-          right-[-14vw]
-          w-[82vw]
-
-          max-md:
-          right-[-28vw]
-          h-[135vh]
-          w-[118vw]
+      {/* MOBILE green arch */}
+      <div
+        className="
+          pointer-events-none absolute
+          -bottom-[8svh] left-1/2
+          h-[80svh] w-[145vw]
+          -translate-x-1/2
+          rounded-t-[50%]
+          bg-[#005847]
+          md:hidden
         "
       />
 
       {/* Content */}
       <div
         className="
-          absolute inset-y-0 right-0 z-10
-          flex w-[64%] items-center justify-center
+          absolute inset-0 z-10
+          flex flex-col items-center
+          px-6 pt-[40svh]
+          text-center text-white
 
-          max-lg:w-[72%]
+          md:inset-y-0 md:left-auto md:right-0
+          md:w-[64%] md:justify-center md:pt-0
 
-          max-md:
-          w-full
-          justify-end
-          pl-[18vw]
-          pr-5
+          lg:w-[62%]
         "
       >
-        <div
+        <img
+          src="/media/rose.svg"
+          alt=""
+          aria-hidden="true"
           className="
-            flex w-full max-w-[620px]
-            flex-col items-center
-            px-6 text-center text-white
+            mb-8 w-[68px]
+            md:mb-10 md:w-[95px]
+          "
+        />
+
+        <p
+          className="
+            mb-8
+            text-[15px] font-light uppercase
+            tracking-[0.02em] text-white/95
+            md:mb-10 md:text-[clamp(14px,1.3vw,20px)]
           "
         >
-          <img
-            src="/media/rose.svg"
-            alt=""
-            aria-hidden="true"
-            className="
-              mb-10 w-[95px]
-              max-md:mb-7
-              max-md:w-[65px]
-            "
-          />
+          {heroSubtitle[language] || "Wedding Invitation"}
+        </p>
 
-          <p
-            className="
-              mb-10
-              text-[clamp(13px,1.3vw,20px)]
-              font-light uppercase
-              tracking-[0.03em]
-              text-white/95
+        <h1
+          className="
+            font-display
+            text-[clamp(38px,10vw,54px)]
+            uppercase leading-[0.95]
+            tracking-[-0.03em]
 
-              max-md:mb-7
-            "
-          >
-            {heroSubtitle[language] || "Wedding Invitation"}
-          </p>
+            md:text-[clamp(42px,5vw,76px)]
+          "
+        >
+          {coupleLabel}
+        </h1>
 
-          <h1
-            className="
-              font-display
-              text-[clamp(42px,5vw,76px)]
-              uppercase leading-[0.95]
-              tracking-[-0.03em]
-              text-white
+        <button
+          type="button"
+          onClick={openWebsite}
+          aria-label={openAria[language]}
+          className="
+            relative z-20 mt-10
+            flex h-[54px] w-[220px]
+            touch-manipulation items-center justify-center
+            rounded-full border border-white
+            bg-transparent
+            text-[15px] uppercase text-white
+            transition active:scale-95
 
-              max-md:
-              text-[clamp(34px,10vw,52px)]
-            "
-          >
-            {coupleLabel}
-          </h1>
-
-          <button
-            type="button"
-            onClick={openWebsite}
-            aria-label={openAria[language]}
-            className="
-              relative z-20
-              mt-16
-              flex h-[68px] w-[300px]
-              touch-manipulation
-              cursor-pointer
-              items-center justify-center
-              rounded-full
-              border border-white
-              bg-transparent
-              text-[18px]
-              uppercase
-              text-white
-              transition
-              active:scale-95
-
-              max-md:
-              mt-10
-              h-[54px]
-              w-[220px]
-              text-[15px]
-            "
-          >
-            {loadingText[language] || "Open"}
-          </button>
-        </div>
+            md:mt-16 md:h-[68px] md:w-[300px]
+            md:text-[18px]
+          "
+        >
+          {loadingText[language] || "Open"}
+        </button>
       </div>
     </div>
   );

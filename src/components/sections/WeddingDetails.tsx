@@ -3,7 +3,7 @@ import { wedding } from "@/data/wedding";
 import { interpolateNames } from "@/lib/i18n";
 
 export function WeddingDetails() {
-  const HeroParagraphs = {
+  const paragraphs = {
     ky: wedding.copy.invitation.HeroParagraphs.ky.map((text) =>
       interpolateNames(text, wedding.couple),
     ),
@@ -16,35 +16,42 @@ export function WeddingDetails() {
     <section
       data-reveal
       className="
-        relative flex h-[100svh] items-center justify-center overflow-hidden
-        bg-[#faf8ee] bg-[url('/media/hero-background.jpg')]
-        bg-cover bg-center bg-no-repeat px-3 py-8
-        opacity-0 translate-y-3 transition-all duration-[850ms]
-        data-[revealed=true]:translate-y-0
-        data-[revealed=true]:opacity-100
+        relative flex min-h-[100svh]
+        items-center justify-center overflow-hidden
+        bg-[#faf8ee]
+        bg-[url('/media/hero-background.jpg')]
+        bg-cover bg-center bg-no-repeat
+        px-3 py-12
+
         after:pointer-events-none
         after:absolute after:inset-x-0 after:bottom-0 after:z-[1]
-        after:h-[38%]
+        after:h-[35%]
         after:bg-gradient-to-b
         after:from-transparent
         after:via-[#faf8ee]/75
         after:to-[#faf8ee]
-        opacity-0 translate-y-3 transition-all duration-[850ms]
+
+        opacity-0 translate-y-3
+        transition-all duration-[850ms]
         data-[revealed=true]:translate-y-0
-        data-[revealed=true]:opacity-100  
-          "
-        >
-      {/* FRAME + CONTENT */}
+        data-[revealed=true]:opacity-100
+      "
+    >
+      {/* Responsive frame */}
       <div
         className="
           relative z-10
-          aspect-[1.751/1]
-          w-[100vw]
+          aspect-[1165/2040]
+          w-[86vw] max-w-[520px]
+
+          sm:aspect-[1.751/1]
+          sm:w-[94vw]
+          sm:max-w-[1250px]
+
           lg:w-[70vw]
-          max-w-[1250px]
         "
       >
-        {/* Rotated frame SVG */}
+        {/* Portrait mobile / landscape desktop */}
         <img
           src="/media/hero-detail-circle.svg"
           alt=""
@@ -52,13 +59,15 @@ export function WeddingDetails() {
           className="
             pointer-events-none
             absolute left-1/2 top-1/2
-            w-[57.11%] max-w-none
+            w-full max-w-none
             -translate-x-1/2 -translate-y-1/2
-            rotate-90
+
+            sm:w-[57.11%]
+            sm:rotate-90
           "
         />
 
-        {/* CONTENT INSIDE FRAME */}
+        {/* Content */}
         <div
           className="
             absolute inset-[7%_8%]
@@ -66,35 +75,37 @@ export function WeddingDetails() {
             text-center text-[#075d50]
           "
         >
-          {/* Arc heading */}
+          {/* Curved invitation text */}
           <img
             src="/media/invitation-arc.svg"
             alt="Wedding invitation"
             className="
-              mb-1 w-[38%] max-w-[390px]
-              sm:mb-2
+              mb-4 w-[78%]
+              sm:mb-2 sm:w-[38%]
             "
           />
 
           {/* Bow */}
           <img
-            src="/media/Vector.svg"
+            src="/media/bow.svg"
             alt=""
             aria-hidden="true"
             className="
-              mb-2 w-[10%] max-w-[105px]
-              sm:mb-4
+              mb-10 w-[28%] max-w-[125px]
+              sm:mb-4 sm:w-[10%] sm:max-w-[105px]
             "
           />
 
-          {/* WEDDING + Day */}
-          <div className="relative mb-5 sm:mb-8 lg:mb-12">
+          {/* Wedding + Day */}
+          <div className="relative mb-16 sm:mb-8 lg:mb-12">
             <h1
               className="
                 font-display
-                text-[clamp(26px,6vw,96px)]
-                uppercase leading-[0.75]
+                text-[clamp(46px,13vw,82px)]
+                uppercase leading-[0.78]
                 tracking-[-0.04em]
+
+                sm:text-[clamp(26px,6vw,96px)]
               "
             >
               WEDDING
@@ -105,44 +116,55 @@ export function WeddingDetails() {
               alt="Day"
               className="
                 pointer-events-none
-                absolute left-[58%] top-[45%]
-                w-[42%] max-w-[230px]
+                absolute left-[52%] top-[50%]
+                w-[55%]
+
+                sm:left-[58%]
+                sm:top-[45%]
+                sm:w-[42%]
+                sm:max-w-[230px]
               "
             />
           </div>
 
-          {/* Invitation text */}
+          {/* Description */}
           <div
             className="
-              mt-1 max-w-[78%]
+              max-w-[92%]
               font-copy uppercase
-              text-[clamp(8px,1.65vw,19px)]
-              leading-[1.45]
+              text-[clamp(12px,3.4vw,17px)]
+              leading-[1.55]
               tracking-[0.01em]
               text-[#28736a]
+
               sm:mt-3
+              sm:max-w-[78%]
+              sm:text-[clamp(8px,1.65vw,19px)]
+              sm:leading-[1.45]
             "
           >
             <div className="lang lang-ky">
-              {HeroParagraphs.ky.map((text: any, i) => (
+              {paragraphs.ky.map((text, i) => (
                 <p key={i}>{text}</p>
               ))}
             </div>
 
             <div className="lang lang-ru">
-              {HeroParagraphs.ru.map((text: any, i) => (
+              {paragraphs.ru.map((text, i) => (
                 <p key={i}>{text}</p>
               ))}
             </div>
           </div>
 
           {/* Date */}
-          <div className="mt-3 sm:mt-5 lg:mt-8">
+          <div className="mt-8 sm:mt-5 lg:mt-8">
             <p
               className="
                 font-display
-                text-[clamp(14px,2.5vw,38px)]
+                text-[clamp(28px,8vw,42px)]
                 leading-none text-[#b77b20]
+
+                sm:text-[clamp(14px,2.5vw,38px)]
               "
             >
               <LocalizedTextView value={wedding.event.displayDate} />
@@ -150,8 +172,9 @@ export function WeddingDetails() {
 
             <span
               className="
-                mx-auto mt-3 block
-                h-1.5 w-1.5 rounded-full bg-[#076557]
+                mx-auto mt-8 block
+                h-2.5 w-2.5 rounded-full bg-[#076557]
+
                 sm:mt-5 sm:h-2 sm:w-2
               "
             />
