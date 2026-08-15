@@ -3,7 +3,7 @@ import { appendRsvp } from "@/lib/server/google-sheets";
 
 export const runtime = "nodejs";
 
-type Payload = Readonly<{ name?: unknown; attendance?: unknown; guestCount?: unknown; drinks?: unknown }>;
+type Payload = Readonly<{ name?: unknown; attendance?: unknown; drinks?: unknown }>;
 const allowedDrinks = new Set(["red-wine", "white-wine", "whisky", "vodka", "champagne", "soft"]);
 
 function sanitizeName(value: unknown): string | null {
@@ -14,9 +14,6 @@ function sanitizeName(value: unknown): string | null {
   return name;
 }
 
-function parseGuestCount(value: unknown): 1 | 2 | 3 | null {
-  return value === 1 || value === 2 || value === 3 ? value : null;
-}
 
 function parseDrinks(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
@@ -38,10 +35,9 @@ export async function POST(request: Request) {
 
   const name = sanitizeName(payload.name);
   const attendance = payload.attendance === "yes" || payload.attendance === "no" ? payload.attendance : null;
-  const guestCount = parseGuestCount(payload.guestCount);
   const drinks = parseDrinks(payload.drinks);
 
-  if (!name || !attendance || !guestCount) {
+  if (!name || !attendance) {
     return NextResponse.json({ ok: false, code: "INVALID_FIELDS" }, { status: 400 });
   }
 
@@ -50,7 +46,6 @@ export async function POST(request: Request) {
       timestamp: new Date().toISOString(),
       name,
       attendance: attendance === "yes" ? "Придёт" : "Не придёт",
-      guestCount,
       drinks,
     });
     return NextResponse.json({ ok: true }, { status: 201 });

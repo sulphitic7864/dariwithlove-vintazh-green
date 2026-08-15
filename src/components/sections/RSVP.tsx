@@ -6,7 +6,6 @@ import type { Language, LocalizedText } from "@/data/wedding";
 import { useActiveLanguage } from "@/lib/use-active-language";
 
 type Attendance = "yes" | "no";
-type GuestCount = 1 | 2 | 3;
 
 type Props = Readonly<{
   defaultLanguage: Language;
@@ -19,7 +18,6 @@ type Props = Readonly<{
     nameLabel: LocalizedText;
     nameHint: LocalizedText;
     namePlaceholder: LocalizedText;
-    guestCountLabel: LocalizedText;
     drinksLabel: LocalizedText;
     drinksHint: LocalizedText;
     drinks: readonly Readonly<{ id: string; label: LocalizedText }>[];
@@ -30,7 +28,6 @@ type Props = Readonly<{
     validation: Readonly<{
       name: LocalizedText;
       attendance: LocalizedText;
-      guestCount: LocalizedText;
     }>;
   }>;
 }>;
@@ -39,7 +36,6 @@ export function RSVP({ defaultLanguage, copy }: Props) {
   const language = useActiveLanguage(defaultLanguage);
   const [name, setName] = useState("");
   const [attendance, setAttendance] = useState<Attendance | "">("");
-  const [guestCount, setGuestCount] = useState<GuestCount | null>(null);
   const [drinks, setDrinks] = useState<string[]>([]);
   const [status, setStatus] = useState<
     "idle" | "submitting" | "success" | "error"
@@ -64,8 +60,6 @@ export function RSVP({ defaultLanguage, copy }: Props) {
       return setValidationMessage(copy.validation.name[language]);
     if (!attendance)
       return setValidationMessage(copy.validation.attendance[language]);
-    if (!guestCount)
-      return setValidationMessage(copy.validation.guestCount[language]);
 
     setValidationMessage("");
     setStatus("submitting");
@@ -78,7 +72,6 @@ export function RSVP({ defaultLanguage, copy }: Props) {
         body: JSON.stringify({
           name: cleanName,
           attendance,
-          guestCount,
           drinks,
         }),
       });
