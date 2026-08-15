@@ -9,7 +9,6 @@ const SHEET_HEADERS = [
   "Timestamp",
   "Name",
   "Attendance",
-  "Guest Count",
   "Drink Preferences",
 ] as const;
 
@@ -222,7 +221,6 @@ async function ensureHeaders(
               "Timestamp",
               "Name",
               "Attendance",
-              "Guest Count",
               "Drink Preferences",
             ],
           ],
@@ -262,7 +260,6 @@ export async function appendRsvp(
     timestamp: string;
     name: string;
     attendance: "Придёт" | "Не придёт";
-    guestCount: 1 | 2 | 3;
     drinks: readonly string[];
   }>
 ): Promise<void> {
@@ -293,7 +290,6 @@ export async function appendRsvp(
           input.timestamp,
           input.name,
           input.attendance,
-          input.guestCount,
           input.drinks.join(", "),
         ],
       ],
